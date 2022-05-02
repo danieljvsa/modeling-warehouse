@@ -3,7 +3,8 @@
 class Webgl {
 
   constructor() {
-        
+    
+    
     this.clock = new THREE.Clock();
 
     this.scene = new THREE.Scene();        
@@ -36,11 +37,13 @@ class Webgl {
   }
   
   render () {
+    
     let delta = this.clock.getDelta();
     this.trackballControls.update(delta);
-    
+    this.ambientLight = new THREE.AmbientLight(0xfffff);
+    this.scene.add(this.ambientLight);
     //render the scene
     this.renderer.render(this.scene, this.camera);
   }
-
+  
 }
