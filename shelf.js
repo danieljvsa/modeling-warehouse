@@ -1,6 +1,6 @@
 'use strict';
 
-class MyTable extends THREE.Object3D {
+class Shelf extends THREE.Object3D {
 
   constructor(lp, ep, ap, lt, et, at) {
     super();
