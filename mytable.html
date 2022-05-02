@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Example 05.04 - Basic 2D geometries - Cube</title>
+    <script type="text/javascript" src="../libs/three.js"></script>
+    <script type="text/javascript" src="../libs/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    <script type="text/javascript" src="MyTable.js"></script>
+    <script type="text/javascript" src="Webgl.js"></script>
+    <script type="text/javascript" src="GUI.js"></script>
+    <script type="text/javascript" src="../libs/TrackballControls.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div id="GUI-output">
+</div>
+
+<!-- Div which will hold the Output -->
+<div id="WebGL-output">
+</div>
+
+<script type="text/javascript">
+
+$(function (){
+    let webgl = new Webgl();
+
+    let render = function (){
+        requestAnimationFrame(render);
+        webgl.render();
+    };    
+    render();
+});
+
+
+</script>
+</body>
+</html>
