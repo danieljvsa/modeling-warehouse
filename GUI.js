@@ -34,7 +34,7 @@ class GUI {
           }
         },
       "showBox" : () => {  
-        let box1 = new Box(10, 10, 10, 7, 5, 8, 1);
+        let box1 = new Box(7, 5, 8, 1, 0, 0, 0);
         this.webgl.scene.add(box1);
       },
       "trackball" : () => { 
@@ -48,6 +48,10 @@ class GUI {
       },
       "fly" : () => { 
         this.webgl.flyControls();
+      },
+      "showShelf" : () => {
+        let shelf = new Shelf(10, 20, 20, 7, 5, 8, 1, 0, 0, 0);
+        this.webgl.scene.add(shelf)
       }
     };
        
@@ -61,6 +65,7 @@ class GUI {
     gui.add(guiVars, 'orbit')
     gui.add(guiVars, 'firstperson')
     gui.add(guiVars, 'fly')
+    gui.add(guiVars, 'showShelf')
 
     ex1.onChange(value => {
       this.webgl.trackballControls.enabled = false;
