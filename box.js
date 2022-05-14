@@ -2,9 +2,11 @@
 
 class Box extends THREE.Object3D {
 
-  constructor(length, height, width, thickness, x, y, z) {
+  constructor(length, height, width, thickness) {
     super();
-    
+    let x = this.position.x 
+    let y = this.position.y 
+    let z = this.position.z 
     // Base panel
     this.base = Box.createMesh(new THREE.BoxGeometry(length, 0.1, width));
     this.base.translateX(x);

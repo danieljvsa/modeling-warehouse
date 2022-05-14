@@ -34,7 +34,10 @@ class GUI {
           }
         },
       "showBox" : () => {  
-        let box1 = new Box(7, 5, 8, 1, 0, 0, 0);
+        let box1 = new Box(7, 5, 8, 1);
+        box1.position.x = 0
+        box1.position.y = 0
+        box1.position.z = 0
         this.webgl.scene.add(box1);
       },
       "trackball" : () => { 
@@ -50,7 +53,10 @@ class GUI {
         this.webgl.flyControls();
       },
       "showShelf" : () => {
-        let shelf = new Shelf(10, 20, 20, 7, 5, 8, 1, 0, 0, 0);
+        let shelf = new Shelf(10, 20, 20, 7, 5, 8, 1);
+        shelf.position.x = 0
+        shelf.position.y = 0
+        shelf.position.z = 0
         this.webgl.scene.add(shelf)
       }
     };

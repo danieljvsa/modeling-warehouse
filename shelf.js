@@ -2,9 +2,11 @@
 
 class Shelf extends THREE.Object3D {
 
-  constructor(length, height, width, boxLength, boxHeight, boxWidht, boxThickness, x, y, z) {
+  constructor(length, height, width, boxLength, boxHeight, boxWidht, boxThickness) {
     super();
-
+    let x = this.position.x 
+    let y = this.position.y 
+    let z = this.position.z 
     // First Floor
     this.first = Shelf.createMesh(new THREE.CubeGeometry(length, 1, width + (width/2)));
     this.first.translateX(x);
@@ -18,6 +20,7 @@ class Shelf extends THREE.Object3D {
     this.firstGroup.add(this.firstBox2);
     this.firstGroup.rotateX(0.2);
 
+    
     // Second Floor
     this.second = Shelf.createMesh(new THREE.CubeGeometry(length, 1, width + (width/2)));
     this.second.translateX(x);
