@@ -76,7 +76,7 @@ class Shelf extends THREE.Object3D {
   
   static createMesh(geom) {
     // Assign Material
-    let wireFrameMat = new THREE.MeshBasicMaterial({color: 'red'});
+    let wireFrameMat = new THREE.MeshLambertMaterial({color: 'red'});
     wireFrameMat.wireframe = false;
 
     let mesh = new THREE.Mesh(geom, wireFrameMat);

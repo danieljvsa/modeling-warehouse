@@ -40,7 +40,7 @@ class Box extends THREE.Object3D {
   
   static createMesh(geom) {
     // Assign Material
-    let wireFrameMat = new THREE.MeshBasicMaterial({color: 'blue', wireframe: false});
+    let wireFrameMat = new THREE.MeshLambertMaterial({color: 'blue', wireframe: false});
     
 
     let mesh = new THREE.Mesh(geom, wireFrameMat);

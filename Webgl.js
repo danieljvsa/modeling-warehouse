@@ -11,16 +11,23 @@ class Webgl {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setClearColorHex(0xEEEEEE);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-
+    this.renderer.shadowMapEnabled = true;
     this.scene = new THREE.Scene();     
 
-   this.persCamera()
-
+    this.persCamera()
+    this.renderGlobal()
     
     // add the output of the renderer to the html element
     $("#WebGL-output").append(this.renderer.domElement);
 
     this.gui = new GUI(this);
+  }
+
+  cleanCanvas () {
+    for (var i = 0; i < this.scene.children.length; )
+      this.scene.remove(this.scene.children[i]);  
+
+      this.animationEnabled = false;
   }
   
   persCamera(){
@@ -69,12 +76,31 @@ class Webgl {
     this.controls.dragToLook = false;
   }
 
+  renderGlobal (){
+    this.cleanCanvas();
+
+    //this.scene.add(new THREE.AxisHelper(500));
+
+    // add subtle ambient lighting
+    this.ambientLight = new THREE.AmbientLight(0x878787);
+    this.scene.add(this.ambientLight);
+
+    var planeGeometry = new THREE.PlaneGeometry(150, 150, 1, 1);
+    var planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
+    this.plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    this.plane.receiveShadow = true;
+    this.plane.rotation.x = -0.5 * Math.PI;
+    this.plane.position.x = 0;
+    this.plane.position.y = 0;
+    this.plane.position.z = 0;
+    this.scene.add(this.plane);
+  }
+
   render () {
     
     let delta = this.clock.getDelta();
     this.controls.update(delta);
-    //this.ambientLight = new THREE.AmbientLight(0xfffff);
-    //this.scene.add(this.ambientLight);
+    
     //render the scene
     this.renderer.render(this.scene, this.camera);
   }
