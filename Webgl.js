@@ -96,11 +96,33 @@ class Webgl {
     this.scene.add(this.plane);
   }
 
+  animateRobot (A, B, robot){
+    if(this.animationEnabled == false){
+      this.animationEnabled = true;
+    }else{
+      this.animationEnabled = false;
+    }
+    this.pointA = A;
+    this.pointB = B;
+    this.robot = robot
+    this.scale = 0.5;
+  }
+
   render () {
     
     let delta = this.clock.getDelta();
     this.controls.update(delta);
     
+    if(this.animationEnabled == true){
+      if(this.robot.position.x < this.pointA){
+        this.scale = 0.5;
+      }
+      if(this.robot.position.x > this.pointB){
+        this.scale = -0.5;
+      }
+      this.robot.position.x += this.scale;
+    }
+
     //render the scene
     this.renderer.render(this.scene, this.camera);
   }
