@@ -81,90 +81,15 @@ class GUI {
       "showWarehouse": () => {
         this.webgl.renderGlobal()
 
-        let shelf1 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf1.position.x = 0
-        shelf1.position.y = 0
-        shelf1.position.z = 0
-        
-        let shelf2 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf2.position.x = -20
-        shelf2.position.y = 0
-        shelf2.position.z = 0
-        
-        let shelf3 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf3.position.x = 20
-        shelf3.position.y = 0
-        shelf3.position.z = 0
-
-        this.webgl.scene.add(shelf1);
-        this.webgl.scene.add(shelf2);
-        this.webgl.scene.add(shelf3);
-
-        let spotLight1 = new THREE.SpotLight(0xffffff, 1, 100000);
-        spotLight1.position.set(0, 0 + 20 + 80, 0);
-        spotLight1.intensity = 0.5;
-        spotLight1.castShadow = true;
-        spotLight1.target = shelf1;
-        this.webgl.scene.add(spotLight1);
-        
-        let spotLight2 = new THREE.SpotLight(0xffffff);
-        spotLight2.position.set(-20 / 2, 0 + 20 + 80, 0);
-        spotLight2.intensity = 0.5;
-        spotLight2.castShadow = true;
-        spotLight2.target = shelf2;
-        this.webgl.scene.add(spotLight2);
-       
-        let spotLight3 = new THREE.SpotLight(0xffffff);
-        spotLight3.position.set(20 / 2, 0 + 20 + 80, 0);
-        spotLight3.intensity = 0.5;
-        spotLight3.castShadow = true;
-        spotLight3.target = shelf3;
-        this.webgl.scene.add(spotLight3);
-
+        let warehouse = new Warehouse()
+        this.webgl.scene.add(warehouse)
         
       },
       "showRobot": () => {
         this.webgl.renderGlobal();
 
-        let shelf1 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf1.position.x = 0
-        shelf1.position.y = 0
-        shelf1.position.z = 0
-        
-        let shelf2 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf2.position.x = -20
-        shelf2.position.y = 0
-        shelf2.position.z = 0
-        
-        let shelf3 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf3.position.x = 20
-        shelf3.position.y = 0
-        shelf3.position.z = 0
-
-        this.webgl.scene.add(shelf1);
-        this.webgl.scene.add(shelf2);
-        this.webgl.scene.add(shelf3);
-
-        let spotLight1 = new THREE.SpotLight(0xffffff, 1, 100000);
-        spotLight1.position.set(0, 0 + 20 + 80, 0);
-        spotLight1.intensity = 0.5;
-        spotLight1.castShadow = true;
-        spotLight1.target = shelf1;
-        this.webgl.scene.add(spotLight1);
-        
-        let spotLight2 = new THREE.SpotLight(0xffffff);
-        spotLight2.position.set(-20 / 2, 0 + 20 + 80, 0);
-        spotLight2.intensity = 0.5;
-        spotLight2.castShadow = true;
-        spotLight2.target = shelf2;
-        this.webgl.scene.add(spotLight2);
-       
-        let spotLight3 = new THREE.SpotLight(0xffffff);
-        spotLight3.position.set(20 / 2, 0 + 20 + 80, 0);
-        spotLight3.intensity = 0.5;
-        spotLight3.castShadow = true;
-        spotLight3.target = shelf3;
-        this.webgl.scene.add(spotLight3);
+        let warehouse = new Warehouse()
+        this.webgl.scene.add(warehouse)
         
         let robot = new Robot();
         robot.position.x = 0
@@ -176,47 +101,10 @@ class GUI {
       "animateRobot": () => {
         this.webgl.renderGlobal()
 
-        this.webgl.renderGlobal();
-
-        let shelf1 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf1.position.x = 0
-        shelf1.position.y = 0
-        shelf1.position.z = 0
         
-        let shelf2 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf2.position.x = -20
-        shelf2.position.y = 0
-        shelf2.position.z = 0
-        
-        let shelf3 = new Shelf(10, 20, 20, 7, 5, 8, 1);
-        shelf3.position.x = 20
-        shelf3.position.y = 0
-        shelf3.position.z = 0
 
-        this.webgl.scene.add(shelf1);
-        this.webgl.scene.add(shelf2);
-        this.webgl.scene.add(shelf3);
-
-        let spotLight1 = new THREE.SpotLight(0xffffff, 1, 100000);
-        spotLight1.position.set(0, 0 + 20 + 80, 0);
-        spotLight1.intensity = 0.5;
-        spotLight1.castShadow = true;
-        spotLight1.target = shelf1;
-        this.webgl.scene.add(spotLight1);
-        
-        let spotLight2 = new THREE.SpotLight(0xffffff);
-        spotLight2.position.set(-20 / 2, 0 + 20 + 80, 0);
-        spotLight2.intensity = 0.5;
-        spotLight2.castShadow = true;
-        spotLight2.target = shelf2;
-        this.webgl.scene.add(spotLight2);
-       
-        let spotLight3 = new THREE.SpotLight(0xffffff);
-        spotLight3.position.set(20 / 2, 0 + 20 + 80, 0);
-        spotLight3.intensity = 0.5;
-        spotLight3.castShadow = true;
-        spotLight3.target = shelf3;
-        this.webgl.scene.add(spotLight3);
+        let warehouse = new Warehouse()
+        this.webgl.scene.add(warehouse)
         
         let robot = new Robot();
         robot.position.x = 0
@@ -244,6 +132,7 @@ class GUI {
     gui.add(guiVars, 'fly')
     gui.add(guiVars, 'showShelf')
     gui.add(guiVars, 'showRobot')
+    gui.add(guiVars, 'showWarehouse')
     gui.add(guiVars, 'animateRobot')
 
     
