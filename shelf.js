@@ -8,7 +8,7 @@ class Shelf extends THREE.Object3D {
     let y = this.position.y 
     let z = this.position.z 
     // First Floor
-    this.first = Shelf.createMesh(new THREE.CubeGeometry(length, 1, width + (width/2)));
+    this.first = Shelf.createMesh(new THREE.BoxGeometry(length, 1, width + (width/2)));
     this.first.translateX(x);
     this.first.translateY(y + 5);
     this.first.translateZ(z);
@@ -22,7 +22,7 @@ class Shelf extends THREE.Object3D {
 
     
     // Second Floor
-    this.second = Shelf.createMesh(new THREE.CubeGeometry(length, 1, width + (width/2)));
+    this.second = Shelf.createMesh(new THREE.BoxGeometry(length, 1, width + (width/2)));
     this.second.translateX(x);
     this.second.translateY(y + (height / 2) + 5);
     this.second.translateZ(z - length / 2);
@@ -35,7 +35,7 @@ class Shelf extends THREE.Object3D {
     this.secondGroup.rotateX(0.2);
 
     // Third Floor
-    this.third = Shelf.createMesh(new THREE.CubeGeometry(length, 1, width + (width/2)));
+    this.third = Shelf.createMesh(new THREE.BoxGeometry(length, 1, width + (width/2)));
     this.third.translateX(x);
     this.third.translateY(y + height + 6);
     this.third.translateZ(z - (length / 2.5));
@@ -47,31 +47,42 @@ class Shelf extends THREE.Object3D {
     this.thirdGroup.add(this.thirdBox2);
     this.thirdGroup.rotateX(-0.1);
 
-    this.support1 = Shelf.createMesh(new THREE.CubeGeometry(1, height + height / 2, boxThickness));
+    this.support1 = Shelf.createMesh(new THREE.BoxGeometry(1, height + height / 2, boxThickness));
     this.support1.translateX(x + length / 2);
     this.support1.translateY(y + height / 3 + 8);
     this.support1.translateZ(z + width / 6);
-    this.support2 = Shelf.createMesh(new THREE.CubeGeometry(1, height + height / 2, 1));
+    this.support2 = Shelf.createMesh(new THREE.BoxGeometry(1, height + height / 2, 1));
     this.support2.translateX(x + length / 2);
     this.support2.translateY(y + height / 3 + 8);
     this.support2.translateZ(z - width / 2.5);
-    this.support3 = Shelf.createMesh(new THREE.CubeGeometry(1, height + height / 2, 1));
+    this.support3 = Shelf.createMesh(new THREE.BoxGeometry(1, height + height / 2, 1));
     this.support3.translateX(x - length / 2);
     this.support3.translateY(y + height / 3 + 8);
     this.support3.translateZ(z + width / 6);
-    this.support4 = Shelf.createMesh(new THREE.CubeGeometry(1, height + height / 2, 1));
+    this.support4 = Shelf.createMesh(new THREE.BoxGeometry(1, height + height / 2, 1));
     this.support4.translateX(x - length / 2);
     this.support4.translateY(y + height / 3 + 8);
     this.support4.translateZ(z - width / 2.5);
 
+    this.allGroup = new THREE.Group();
+    this.allGroup.add(this.firstGroup);
+    this.allGroup.add(this.secondGroup);
+    this.allGroup.add(this.thirdGroup);
+    this.allGroup.add(this.support1);
+    this.allGroup.add(this.support2);
+    this.allGroup.add(this.support3);
+    this.allGroup.add(this.support4);
 
-    this.add(this.firstGroup);
-    this.add(this.secondGroup);
-    this.add(this.thirdGroup);
-    this.add(this.support1);
-    this.add(this.support2);
-    this.add(this.support3);
-    this.add(this.support4);
+    let spotLight1 = new THREE.SpotLight(0xffffff);
+    spotLight1.position.set(0, 20 + 90, 0);
+    spotLight1.intensity = 0.5;
+    spotLight1.castShadow = true;
+    spotLight1.target = this.allGroup;
+
+    this.add(this.allGroup);
+    
+    this.add(spotLight1);
+    
   }
   
   static createMesh(geom) {

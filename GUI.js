@@ -68,15 +68,14 @@ class GUI {
         shelf.position.x = 0
         shelf.position.y = 0
         shelf.position.z = 0
+        
+        
+
         this.webgl.scene.add(shelf)
         
-        let spotLight1 = new THREE.SpotLight(0xffffff);
-        spotLight1.position.set(0, 20 + 40, 0);
-        spotLight1.intensity = 0.5;
-        spotLight1.castShadow = true;
-        spotLight1.target = shelf;
+        
 
-        this.webgl.scene.add(spotLight1)
+        
       }, 
       "showWarehouse": () => {
         this.webgl.renderGlobal()

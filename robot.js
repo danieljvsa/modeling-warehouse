@@ -12,7 +12,7 @@ class Robot extends THREE.Object3D {
     var height = 7;
     var width = 7;
 
-    this.body = Robot.createMesh(new THREE.CubeGeometry(length, height, width));
+    this.body = Robot.createMesh(new THREE.BoxGeometry(length, height, width));
     this.body.translateX(x);
     this.body.translateY(y);
     this.body.translateZ(z);

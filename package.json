@@ -1,0 +1,28 @@
+{
+  "name": "modeling-warehouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GUI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/dat.gui": "^0.7.7",    
+    "@types/jquery": "^3.5.14",    
+    "@types/requirejs": "^2.1.34",
+    "dat.gui": "^0.7.9",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "three": "^0.141.0"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieljvsa/modeling-warehouse.git"
+  },
+  "author": "Danil Sá",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danieljvsa/modeling-warehouse/issues"
+  },
+  "homepage": "https://github.com/danieljvsa/modeling-warehouse#readme"
+}
